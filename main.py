@@ -1,9 +1,15 @@
 import cv2
 import sys
-from os import path
+from os import path, mkdir
 
 
 def face_capture(filename):
+    # Creating a directories
+    if not path.exists('output_videos'):
+        mkdir('output_videos')
+    if not path.exists('output_txts'):
+        mkdir('output_txts')
+
     # Getting simple file name
     index = path.basename(filename).index('.')
     simple_filename = path.basename(filename)[:index]
